@@ -1,0 +1,103 @@
+\def\theauthor{Martin Frost} % TODO: stoppa in ditt namn här
+\def\homeworknumber{17} % TODO: stoppa in vilken hemläxa det är här
+\def\coursename{Godtycklighetslära} % TODO: stoppan in kursnamn här
+\def\course{DD4711} % TODO: stoppa in kurskod här
+\def\thedate{2009-11-06}
+
+\documentclass[a4paper,10pt,twoside]{article}
+\usepackage[inner=3cm,top=3cm,outer=2cm,bottom=3cm]{geometry}
+\usepackage[swedish]{babel}
+\usepackage[T1]{fontenc}
+% \usepackage[utf8]{inputenc}
+\usepackage{moreverb}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage{tipa}
+\usepackage{listings}
+\lstset{language=Java, fancyvrb=true, tabsize=4}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\definecolor{dark-blue}{rgb}{0, 0, 0.6}
+\usepackage{hyperref}
+\hypersetup{
+  pdfpagemode=FullScreen,
+  colorlinks=true, 
+  linkcolor=dark-blue,
+  urlcolor=dark-blue
+}
+
+% lite inställningar till listings-paketet, bland annat så att den bryter för långa rader
+\lstset{
+  % vilket språk vi använder i våra kodlistings, så att listings-paketet vet hur den ska highligta saker
+  language=Java, 
+  % huruvida vi ska ha syntax highlighting
+  fancyvrb=true, 
+  % hur stora tabstopp vi ska ha
+  tabsize=4, 
+  % hur breda listings vi vill ha (skriv exempelvis linewidth=0.5\textwidth för att få listings som bara tar upp halva bredden av sidan)
+  linewidth=\textwidth, 
+  % huruvida vi ska visa mellanslag
+  showstringspaces=false, 
+  % huruvida vi ska bryta rader som är för långa
+  breaklines=true, 
+  % huruvida den ska få bryta rader mitt i ord eller inte (true här betyder att den bara bryter mellan ord)
+  breakatwhitespace=true, 
+  % indentera radbrytningar automatiskt
+  breakautoindent=true,
+  % lägg in radnummer på vänster sida
+  numbers=left, 
+  % hur stora radnumren ska vara
+  numberstyle=\tiny, 
+  % hur långt det ska vara mellan radnumren och koden
+  numbersep=8pt,
+  % lite mindre fonts
+  basicstyle=\small
+}
+
+\pagestyle{fancy}\headheight 13pt
+\fancyfoot{}
+\lhead{\course\ -\ \theauthor}
+\rhead{Hemläxa \homeworknumber}
+\fancyfoot[LE,RO]{\thepage}
+\title{Hemläxa \homeworknumber\ - \course\ \coursename}
+\date{\thedate}
+\author{\theauthor}
+
+\begin{document}
+\maketitle % skapa titelsida
+  \thispagestyle{empty}\cfoot{}
+\clearpage % ny sida
+\thispagestyle{empty}\cfoot{}
+\tableofcontents % innehållsförteckning
+\cleardoublepage
+
+% TODO: stoppa in faktiskt innehåll här.
+
+\section{Någon godtycklig sektion} % (fold)
+\label{sec:någon_godtycklig_sektion}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\subsection{En godtycklig undersektion} % (fold)
+\label{sub:en_godtycklig_undersektion}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+% subsection en_godtycklig_undersektion (end)
+% section någon_godtycklig_sektion (end)
+
+
+\section{Källkod} % (fold)
+\label{sec:källkod}
+\subsection{Foo.java} % (fold)
+\label{sub:foo_java}
+% skriv in namnet på en javafil för att inkludera den
+\lstinputlisting{Foo.java}
+
+% subsection foo_java (end)
+% section källkod (end)
+
+
+\end{document}
+
