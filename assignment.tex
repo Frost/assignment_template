@@ -13,14 +13,11 @@
 \usepackage{amssymb}
 \usepackage{fancyhdr}
 \usepackage{fancyvrb}
-\usepackage{tipa}
-\usepackage{listings}
-\lstset{language=Java, fancyvrb=true, tabsize=4}
 \usepackage{algorithmic}
 \usepackage{algorithm}
 \usepackage{amssymb}
 \usepackage{graphicx}
-\usepackage{color}
+\usepackage{xcolor}
 \definecolor{dark-blue}{rgb}{0, 0, 0.6}
 \usepackage{hyperref}
 \hypersetup{
@@ -29,34 +26,7 @@
   linkcolor=dark-blue,
   urlcolor=dark-blue
 }
-
-% lite inställningar till listings-paketet, bland annat så att den bryter för långa rader
-\lstset{
-  % vilket språk vi använder i våra kodlistings, så att listings-paketet vet hur den ska highligta saker
-  language=Java, 
-  % huruvida vi ska ha syntax highlighting
-  fancyvrb=true, 
-  % hur stora tabstopp vi ska ha
-  tabsize=4, 
-  % hur breda listings vi vill ha (skriv exempelvis linewidth=0.5\textwidth för att få listings som bara tar upp halva bredden av sidan)
-  linewidth=\textwidth, 
-  % huruvida vi ska visa mellanslag
-  showstringspaces=false, 
-  % huruvida vi ska bryta rader som är för långa
-  breaklines=true, 
-  % huruvida den ska få bryta rader mitt i ord eller inte (true här betyder att den bara bryter mellan ord)
-  breakatwhitespace=true, 
-  % indentera radbrytningar automatiskt
-  breakautoindent=true,
-  % lägg in radnummer på vänster sida
-  numbers=left, 
-  % hur stora radnumren ska vara
-  numberstyle=\tiny, 
-  % hur långt det ska vara mellan radnumren och koden
-  numbersep=8pt,
-  % lite mindre fonts
-  basicstyle=\small
-}
+\usepackage{minted}
 
 \pagestyle{fancy}\headheight 13pt
 \fancyfoot{}
@@ -93,7 +63,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 \subsection{Foo.java} % (fold)
 \label{sub:foo_java}
 % skriv in namnet på en javafil för att inkludera den
-\lstinputlisting{Foo.java}
+\inputminted{java}{Foo.java}
 
 % subsection foo_java (end)
 % section källkod (end)
