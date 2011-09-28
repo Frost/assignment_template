@@ -1,67 +1,152 @@
-\documentclass[a4paper,10pt,twoside]{article}
-\usepackage[inner=3cm,top=3cm,outer=2cm,bottom=3cm]{geometry}
-\usepackage[swedish]{babel}
-\usepackage[T1]{fontenc}
-% \usepackage[utf8]{inputenc}
-\usepackage{moreverb}
-\usepackage{amssymb}
-\usepackage{fancyhdr}
-\usepackage{fancyvrb}
-\usepackage{algorithmic}
-\usepackage{algorithm}
-\usepackage{amssymb}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\definecolor{dark-blue}{rgb}{0, 0, 0.6}
-\usepackage{hyperref}
-\hypersetup{
-  pdfpagemode=FullScreen,
-  colorlinks=true, 
-  linkcolor=dark-blue,
-  urlcolor=dark-blue
-}
-\usepackage{minted}
+\documentclass[a4paper,10pt,english,swedish]{article}
 
-\pagestyle{fancy}\headheight 13pt
-\fancyfoot{}
-\lhead{\course\ -\ Inlämning \homeworknumber}
+% Customized for UNIX and XeTeX (Does NOT work with PDFLaTeX)
+
+% Adds support for code listings
+\usepackage{listings}
+
+% Adds advanced syntax highlighting support via "pygments"
+\usepackage{minted}
+% You need to install minted.sty and the "pygments" Python package for
+% this!
+
+% Adds page headers
+\usepackage{fancyhdr}
+
+% Adds direct UTF-8 support in source files for XeTeX
+\usepackage{xunicode}
+
+% You think Babel is good for language support? Hah, try this!
+\usepackage{polyglossia}
+
+% Adds PDF features
+\usepackage[unicode=true,pdfusetitle,bookmarks=true,
+ bookmarksnumbered=true,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 0},backref=false,
+ colorlinks=false]{hyperref}
 
 % Include author-specific information from the external file
 \input{authorinfo}
+
+% Fontspecs
+% Using XeTeX? Good! These awesome fonts are awesome:
+\usepackage{fontspec}
+\setmainfont[Mapping=tex-text,Numbers=OldStyle]{Calluna}
+\setsansfont[Mapping=tex-text]{Calluna Sans}
+\setmonofont{Droid Sans Mono}
+
+% Alternate fonts:
+%\usepackage{fontspec}
+%\setmainfont[Mapping=tex-text,Numbers=OldStyle]{Fontin}
+%\setsansfont[Mapping=tex-text]{Fontin Sans}
+%\setmonofont{Droid Sans Mono}
+
+% Not using XeTeX? Oh well, still use some awesome fonts:
+%\usepackage{bookman}
+%\renewcommand{\sfdefault}{lmss}
+%\renewcommand{\ttdefault}{lmtt}
+
+% Listings
+\renewcommand\listingscaption{Programkod}
+\renewcommand\listoflistingscaption{Programkodsförteckning}
+
+% Mint
+% You can select a different style here:
+%\usemintedstyle{monokai}
+%\usemintedstyle{manni}
+%\usemintedstyle{perldoc}
+%\usemintedstyle{borland}
+%\usemintedstyle{colorful}
+%\usemintedstyle{default}
+%\usemintedstyle{murphy}
+%\usemintedstyle{vs}
+%\usemintedstyle{trac}
+%\usemintedstyle{tango}
+%\usemintedstyle{fruity}
+%\usemintedstyle{autumn}
+%\usemintedstyle{bw}
+%\usemintedstyle{emacs}
+%\usemintedstyle{vim}
+\usemintedstyle{friendly}
+%\usemintedstyle{native}
+
+% Fancy background color
+\definecolor{codebg}{rgb}{0.95,0.95,0.95}
+
+% Fancy line numbers
+\renewcommand{\theFancyVerbLine}{
+  \textcolor[rgb]{0.5,0.5,0.5}{\scriptsize
+    \oldstylenums{\arabic{FancyVerbLine}}}}
+
+% Add support for Java code sections.
+\newminted{java}{bgcolor=codebg,linenos=true,numbersep=6pt,mathescape=true,texcl=true,gobble=2}
+\newmintedfile{java}{bgcolor=codebg,linenos=true,numbersep=6pt,stepnumber=5,mathescape=true,texcl=true}
+\newmint{java}{bgcolor=codebg,mathescape=true,texcl=true}
+
+% Header and footer
+\pagestyle{fancy}
+\lhead{\course\ -\ Inlämning \assignmentnr}
 \rhead{\theauthor\ -\ \thedate}
-\fancyfoot[LE,RO]{\thepage}
-\title{Hemläxa \homeworknumber\ - \course\ \coursename}
+\renewcommand{\headrulewidth}{0pt}
+
+% Language
+\setdefaultlanguage{swedish}
+% Surround english text with "\textenglish{}"
+\setotherlanguage{english}
+
+% Paragraphs
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+% Metadata
+\title{Inlämning \assignmentnr\ - \course\ \coursename}
 \date{\thedate}
 \author{\theauthor}
-
 \begin{document}
 
 \include{labcover}
 
 \setcounter{page}{1}
 
-% TODO: stoppa in faktiskt innehåll här.
+\section{Vad är det här?}
 
-\section{Någon godtycklig sektion} % (fold)
-\label{sec:någon_godtycklig_sektion}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Det här är alltså ett exempel på hur man kan lämna in sina INDA-labbar
+på ett snyggt sätt (så att man får guldstjärnor av sin
+asse). \LaTeX-mallen är förhoppningsvis kommenterad tillräckligt så
+att man ser vad det mesta betyder så att du kan ändra den efter eget
+behag.
 
-\subsection{En godtycklig undersektion} % (fold)
-\label{sub:en_godtycklig_undersektion}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-% subsection en_godtycklig_undersektion (end)
-% section någon_godtycklig_sektion (end)
+Kom ihåg att byta ut ditt namn, kod och innehåll innan du lämnar in
+inlämningen.
 
+\section{Källkod}
 
-\section{Källkod} % (fold)
-\label{sec:källkod}
-\subsection{Foo.java} % (fold)
-\label{sub:foo_java}
-% skriv in namnet på en javafil för att inkludera den
-\inputminted{java}{Foo.java}
+På det här sättet kan man inkludera en hel fil, så att du inte behöver
+hålla på och kopiera det in i \LaTeX. Notera att detta exempel
+förutsätter att nämnda kod-fil ligger i samma mapp som denna
+.tex-fil.
 
-% subsection foo_java (end)
-% section källkod (end)
+\subsection{Math.java}
+\javafile{Math.java}
+
+\subsection{Inkludering av kod direkt i \LaTeX}
+
+Ibland ska bara mindre småsaker redovisas, då kan det vara smidigare
+att lägga koden direkt i detta .tex-dokument som i detta exempel.
+
+För att skriva ut ``Hello, World!'' i Java så kan man lämpligtvis köra
+följande metodanrop.
+
+% Istället för /.../ kan man använda vilken separator som helst, ex. :...:
+\java/System.out.println("Hello, World!");/
+
+Alternativt:
+
+\begin{javacode}
+  import static System.out;
+  // ...
+  out.println("Hello World!");
+\end{javacode}
 
 
 \end{document}
