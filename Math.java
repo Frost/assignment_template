@@ -14,7 +14,7 @@ public class Math {
      * @returns The sum of $1, 2, ..., n$
      */
     public static int sumFromOneTo(final int n) {
-        int result;
+        int result = 0;
         for(int i = 1; i <= n; i++) {
             result += i;
         }
