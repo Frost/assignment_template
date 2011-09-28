@@ -21,6 +21,10 @@ I OS X kan du installera `Pygments` genom att köra följande kommando i termina
     
     sudo easy_install pygments
 
+Minted finns dock inte packeterat; man måste själv lägga till
+`minted.sty`-filen till `/usr/local/share/texmf/tex/latex` och köra
+`sudo texhash`.
+
 Sen behöver du checka ut mallen:
 
     git clone git://github.com/Frost/assignment_template
