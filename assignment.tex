@@ -99,8 +99,10 @@
     \oldstylenums{\arabic{FancyVerbLine}}}}
 
 % Add support for Java code sections.
-\newminted{java}{bgcolor=codebg,linenos=true,numbersep=6pt,mathescape=true,texcl=true,gobble=2}
-\newmintedfile{java}{bgcolor=codebg,linenos=true,numbersep=6pt,stepnumber=5,mathescape=true,texcl=true}
+\newminted{java}{bgcolor=codebg,linenos=true,numbersep=6pt,
+  mathescape=true,texcl=true,gobble=2}
+\newmintedfile{java}{bgcolor=codebg,linenos=true,numbersep=6pt,
+  stepnumber=5,mathescape=true,texcl=true}
 \newmint{java}{bgcolor=codebg,mathescape=true,texcl=true}
 
 % Header and footer
@@ -124,7 +126,12 @@
 \author{\theauthor}
 \begin{document}
 
+% Remove this to not have a cover sheet.
 \include{labcover}
+\newpage
+
+% Include this to get a "normal article"
+%\maketitle
 
 \setcounter{page}{1}
 
@@ -147,6 +154,7 @@ förutsätter att nämnda kod-fil ligger i samma mapp som denna
 .tex-fil.
 
 \subsection{Math.java}
+
 \javafile{Math.java}
 
 \subsection{Inkludering av kod direkt i \LaTeX}
@@ -167,7 +175,6 @@ Alternativt:
   // ...
   out.println("Hello World!");
 \end{javacode}
-
 
 \end{document}
 
