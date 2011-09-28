@@ -1,9 +1,3 @@
-\def\theauthor{Martin Frost} % TODO: stoppa in ditt namn här
-\def\homeworknumber{17} % TODO: stoppa in vilken hemläxa det är här
-\def\coursename{Godtycklighetslära} % TODO: stoppan in kursnamn här
-\def\course{DD4711} % TODO: stoppa in kurskod här
-\def\thedate{2009-11-06}
-
 \documentclass[a4paper,10pt,twoside]{article}
 \usepackage[inner=3cm,top=3cm,outer=2cm,bottom=3cm]{geometry}
 \usepackage[swedish]{babel}
@@ -30,8 +24,11 @@
 
 \pagestyle{fancy}\headheight 13pt
 \fancyfoot{}
-\lhead{\course\ -\ \theauthor}
-\rhead{Hemläxa \homeworknumber}
+\lhead{\course\ -\ Inlämning \homeworknumber}
+
+% Include author-specific information from the external file
+\input{authorinfo}
+\rhead{\theauthor\ -\ \thedate}
 \fancyfoot[LE,RO]{\thepage}
 \title{Hemläxa \homeworknumber\ - \course\ \coursename}
 \date{\thedate}
