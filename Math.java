@@ -9,7 +9,7 @@ public class Math {
     private Math() {}
 
     /**
-     * An implementation of $\sum_{i=1}ˆ{n}i$
+     * An implementation of $\sum_{i=1}^{n}i$
      * @param n The upper limit of the sum
      * @returns The sum of $1, 2, ..., n$
      */
