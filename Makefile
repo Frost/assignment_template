@@ -6,7 +6,7 @@ default: pdf
 
 pdf: assignment.pdf
 
-assignment.pdf: assignment.tex Math.java authorinfo.tex labcover.tex
+assignment.pdf: assignment.tex authorinfo.tex labcover.tex
 	$(LATEX) assignment
 	$(LATEX) assignment
 

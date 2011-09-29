@@ -135,46 +135,5 @@
 
 \setcounter{page}{1}
 
-\section{Vad är det här?}
-
-Det här är alltså ett exempel på hur man kan lämna in sina INDA-labbar
-på ett snyggt sätt (så att man får guldstjärnor av sin
-asse). \LaTeX-mallen är förhoppningsvis kommenterad tillräckligt så
-att man ser vad det mesta betyder så att du kan ändra den efter eget
-behag.
-
-Kom ihåg att byta ut ditt namn, kod och innehåll innan du lämnar in
-inlämningen.
-
-\section{Källkod}
-
-På det här sättet kan man inkludera en hel fil, så att du inte behöver
-hålla på och kopiera det in i \LaTeX. Notera att detta exempel
-förutsätter att nämnda kod-fil ligger i samma mapp som denna
-.tex-fil.
-
-\subsection{Math.java}
-
-\javafile{Math.java}
-
-\subsection{Inkludering av kod direkt i \LaTeX}
-
-Ibland ska bara mindre småsaker redovisas, då kan det vara smidigare
-att lägga koden direkt i detta .tex-dokument som i detta exempel.
-
-För att skriva ut ``Hello, World!'' i Java så kan man lämpligtvis köra
-följande metodanrop.
-
-% Istället för /.../ kan man använda vilken separator som helst, ex. :...:
-\java/System.out.println("Hello, World!");/
-
-Alternativt:
-
-\begin{javacode}
-  import static System.out;
-  // ...
-  out.println("Hello World!");
-\end{javacode}
-
 \end{document}
 
