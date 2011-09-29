@@ -1,73 +1,139 @@
-\def\theauthor{Martin Frost} % TODO: stoppa in ditt namn här
-\def\homeworknumber{17} % TODO: stoppa in vilken hemläxa det är här
-\def\coursename{Godtycklighetslära} % TODO: stoppan in kursnamn här
-\def\course{DD4711} % TODO: stoppa in kurskod här
-\def\thedate{2009-11-06}
+\documentclass[a4paper,10pt,english,swedish]{article}
 
-\documentclass[a4paper,10pt,twoside]{article}
-\usepackage[inner=3cm,top=3cm,outer=2cm,bottom=3cm]{geometry}
-\usepackage[swedish]{babel}
-\usepackage[T1]{fontenc}
-% \usepackage[utf8]{inputenc}
-\usepackage{moreverb}
-\usepackage{amssymb}
-\usepackage{fancyhdr}
-\usepackage{fancyvrb}
-\usepackage{algorithmic}
-\usepackage{algorithm}
-\usepackage{amssymb}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\definecolor{dark-blue}{rgb}{0, 0, 0.6}
-\usepackage{hyperref}
-\hypersetup{
-  pdfpagemode=FullScreen,
-  colorlinks=true, 
-  linkcolor=dark-blue,
-  urlcolor=dark-blue
-}
+% Customized for UNIX and XeTeX (Does NOT work with PDFLaTeX)
+
+% Adds support for code listings
+\usepackage{listings}
+
+% Adds advanced syntax highlighting support via "pygments"
 \usepackage{minted}
+% You need to install minted.sty and the "pygments" Python package for
+% this!
 
-\pagestyle{fancy}\headheight 13pt
-\fancyfoot{}
-\lhead{\course\ -\ \theauthor}
-\rhead{Hemläxa \homeworknumber}
-\fancyfoot[LE,RO]{\thepage}
-\title{Hemläxa \homeworknumber\ - \course\ \coursename}
+% Adds page headers
+\usepackage{fancyhdr}
+
+% Adds direct UTF-8 support in source files for XeTeX
+\usepackage{xunicode}
+
+% You think Babel is good for language support? Hah, try this!
+\usepackage{polyglossia}
+
+% Adds PDF features
+\usepackage[pdfusetitle,bookmarks=true,
+ bookmarksnumbered=true,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 0},backref=false,
+ colorlinks=false]{hyperref}
+
+% Include author-specific information from the external file
+\input{authorinfo}
+
+% Fontspecs
+% Using XeTeX? Good! These awesome fonts are awesome
+% (But they need to be installed on your system as .ttf or
+%  .otf files):
+\usepackage{fontspec}
+\setmainfont[Mapping=tex-text,Numbers=OldStyle]{Calluna}
+\setsansfont[Mapping=tex-text]{Calluna Sans}
+\setmonofont{DejaVu Sans Mono}
+
+% Alternate fonts - More "swirly" fonts:
+%\usepackage{fontspec}
+%\setmainfont[Mapping=tex-text,SmallCapsFont=Fontin SmallCaps]{Fontin}
+%\setsansfont[Mapping=tex-text]{Fontin Sans}
+%\setmonofont{DejaVu Sans Mono}
+
+% Alternate fonts - Linux:
+%\usepackage{fontspec}
+%\setmainfont[Mapping=tex-text]{DejaVu Serif}
+%\setsansfont[Mapping=tex-text]{DejaVu Sans}
+%\setmonofont{DejaVu Sans Mono}
+
+% Alternate fonts - Windows:
+%\usepackage{fontspec}
+%\setmainfont[Mapping=tex-text]{Cambria}
+%\setsansfont[Mapping=tex-text]{Calibri}
+%\setmonofont{Consolas}
+
+% Alternate fonts - Windows OldSkool:
+%\usepackage{fontspec}
+%\setmainfont[Mapping=tex-text]{Times New Roman}
+%\setsansfont[Mapping=tex-text]{Arial}
+%\setmonofont{Courier New}
+
+% Not using XeTeX? Oh well, still use some awesome fonts:
+%\usepackage{bookman}
+%\renewcommand{\sfdefault}{lmss}
+%\renewcommand{\ttdefault}{lmtt}
+
+% Listings
+\renewcommand\listingscaption{Programkod}
+\renewcommand\listoflistingscaption{Programkodsförteckning}
+
+% Mint
+% You can select a different style here:
+%\usemintedstyle{monokai}
+%\usemintedstyle{manni}
+%\usemintedstyle{perldoc}
+%\usemintedstyle{borland}
+%\usemintedstyle{colorful}
+%\usemintedstyle{default}
+%\usemintedstyle{murphy}
+%\usemintedstyle{vs}
+%\usemintedstyle{trac}
+%\usemintedstyle{tango}
+%\usemintedstyle{fruity}
+%\usemintedstyle{autumn}
+%\usemintedstyle{bw}
+%\usemintedstyle{emacs}
+%\usemintedstyle{vim}
+\usemintedstyle{friendly}
+%\usemintedstyle{native}
+
+% Fancy background color
+\definecolor{codebg}{rgb}{0.95,0.95,0.95}
+
+% Fancy line numbers
+\renewcommand{\theFancyVerbLine}{
+  \textcolor[rgb]{0.5,0.5,0.5}{\scriptsize
+    \oldstylenums{\arabic{FancyVerbLine}}}}
+
+% Add support for Java code sections.
+\newminted{java}{bgcolor=codebg,fontsize=\small,linenos=true,numbersep=6pt,
+  mathescape=true,texcl=true,gobble=2}
+\newmintedfile{java}{fontsize=\small,linenos=true,numbersep=6pt,
+  stepnumber=5,mathescape=true,texcl=true}
+\newmint{java}{bgcolor=codebg,fontsize=\small,mathescape=true,texcl=true}
+
+% Header and footer
+\pagestyle{fancy}
+\lhead{\course\ -\ Inlämning \assignmentnr}
+\rhead{\theauthor\ -\ \thedate}
+\renewcommand{\headrulewidth}{0pt}
+
+% Language
+\setdefaultlanguage{swedish}
+% Surround english text with "\textenglish{}"
+\setotherlanguage{english}
+
+% Paragraphs
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+% Metadata
+\title{Inlämning \assignmentnr\ - \course\ \coursename}
 \date{\thedate}
 \author{\theauthor}
-
 \begin{document}
-\maketitle % skapa titelsida
-  \thispagestyle{empty}\cfoot{}
-\clearpage % ny sida
-\thispagestyle{empty}\cfoot{}
-\tableofcontents % innehållsförteckning
-\cleardoublepage
 
-% TODO: stoppa in faktiskt innehåll här.
+% Remove this to not have a cover sheet.
+\include{labcover}
+\newpage
 
-\section{Någon godtycklig sektion} % (fold)
-\label{sec:någon_godtycklig_sektion}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+% Include this to get a "normal article"
+%\maketitle
 
-\subsection{En godtycklig undersektion} % (fold)
-\label{sub:en_godtycklig_undersektion}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-% subsection en_godtycklig_undersektion (end)
-% section någon_godtycklig_sektion (end)
-
-
-\section{Källkod} % (fold)
-\label{sec:källkod}
-\subsection{Foo.java} % (fold)
-\label{sub:foo_java}
-% skriv in namnet på en javafil för att inkludera den
-\inputminted{java}{Foo.java}
-
-% subsection foo_java (end)
-% section källkod (end)
-
+\setcounter{page}{1}
 
 \end{document}
 
