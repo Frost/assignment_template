@@ -14,4 +14,4 @@ distclean: clean
 	rm -f assignment.pdf
 
 clean:
-	rm -f *.log *.out *.aux *.toc
+	rm -f *.log *.out *.aux *.toc *.pyg
